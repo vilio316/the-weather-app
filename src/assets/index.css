@@ -1,0 +1,18 @@
+*{
+  box-sizing: border-box;
+}
+#root{
+  padding: 0
+}
+html{
+  font-size: 16px;
+}
+.grid{
+  display: grid
+}
+.navigation_bar{
+  grid-template-columns: 15% 70% auto;
+}
+.grey{
+  background-color: gray;
+}
