@@ -4,15 +4,37 @@
 body{
   padding: 0
 }
-.block_link{display: block; text-align: center;}
+.block_link{display: block; text-align: center; font-size: 1.5rem}
 html{
   font-size: 16px;
+  font-family: sans-serif;
+}
+
+.side_card{
+  width: 70%;
+  justify-self: right;
+}
+input, button{
+  border: 1px solid gray;
+  outline: none;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+button{
+  margin: 1rem 0;
 }
 .test_modal{
   width: 12.5rem;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   border: 1px solid blue;
   background-color: white;
+  position: absolute;
+  padding: 0.5rem;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.7
 }
 .grid{
   display: grid

@@ -1,15 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { LandForm } from './components/LandForm.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { updateWeather } from './api_loaders/loaders.js'
 
 const routes = createBrowserRouter([
 {
-  path: "/", loader: ()=> {
-    return updateWeather(7.55, 12.66)
+  path: `/weather/:lat/:long`, loader: ({params})=> {
+    return updateWeather(params.lat, params.long)
   },
   element: <App/>
+},
+{
+  path: '/', element: <LandForm/>
 }
 ])
 

@@ -15,12 +15,7 @@ return(
         </Button>
             <div style={{borderRadius : "50%", height: "5rem", width:"5rem", border: "1px solid blue", backgroundImage: "url('/src/assets/wr1.jpg')", backgroundSize: "90%"}}/>
                 </div>
-                {modal_status?<></>: <div className="test_modal" style={{
-                    position: "absolute",
-                    padding: "0.5rem",
-                    top: 0,
-                    left: 0,
-                    zIndex: 1,}}>
+                {modal_status?<></>: <div className="test_modal">
             <span onClick={()=> setModal(!modal_status)}>x</span>
             <a className='block_link'>Home</a>
             <a className='block_link'>About</a>
