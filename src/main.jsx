@@ -7,7 +7,7 @@ import { updateWeather } from './api_loaders/loaders.js'
 const routes = createBrowserRouter([
 {
   path: "/", loader: ()=> {
-    return updateWeather(33.34, -94.04)
+    return updateWeather(7.55, 12.66)
   },
   element: <App/>
 }

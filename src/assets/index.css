@@ -1,18 +1,30 @@
 *{
   box-sizing: border-box;
 }
-#root{
+body{
   padding: 0
 }
+.block_link{display: block; text-align: center;}
 html{
   font-size: 16px;
+}
+.test_modal{
+  width: 12.5rem;
+  border-radius: 2rem;
+  border: 1px solid blue;
+  background-color: white;
 }
 .grid{
   display: grid
 }
 .navigation_bar{
-  grid-template-columns: 15% 70% auto;
+  grid-template-columns: auto auto;
+  padding: 0.25rem 0.5rem;
+  position: relative;
 }
 .grey{
   background-color: gray;
+}
+h2,h4{
+  text-align: left;
 }
