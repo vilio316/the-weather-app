@@ -1,3 +1,5 @@
+import { Grid } from "@mui/material";
+
 function WeatherCard(props){
   let weather_data = props.entry;
   console.log(weather_data)
@@ -7,32 +9,45 @@ function WeatherCard(props){
     const floor =(temp)=>{
       return Math.floor(temp)
     }
+    const percent = (figure)=>{
+      return Number(figure) * 100
+    }
+    const toKmH = (speed) =>{
+      return Math.floor((Number(speed)) * 3.6)
+    }
+
    return(
-      <>
-      <div className="grid two_cols">
-        <div>
-        <img src="/src/assets/wr1.jpg" style={{width: "90%"}}/>
-       </div>
-       <div>
-      <p><sup>o</sup> C</p> <span>{weather_data.current.weather[0].main}</span>
-       <p>
-       <p>{weather_data.timezone}</p> 
-       <span style={{textTransform: "capitalize"}}>{weather_data.current.weather[0].description} </span>
+      <Grid container justifySelf={"center"} spacing={1.5}>
+        <Grid item sx={12} md={4} lg={3} alignContent={"center"}>
+        <img src="/src/assets/wr1.jpg" style={{width: "100%", borderRadius: "1.25rem"}}/>
+        </Grid>
+       <Grid item sx={12} md={8} lg={9} style={{padding: "0.25rem 1rem"}}>
+      <p style={{display: "block", margin: "1.5rem"}}>
+        <span className="important_text">{floor(weather_data.current.temp)}<sup>o</sup>C</span>
+       <span className="important_text">{weather_data.timezone}</span> 
+       <span className="important_text" style={{textTransform: "capitalize"}}>{weather_data.current.weather[0].description} </span>
        </p>
-        <div className="grid" style={{gridTemplateColumns:"auto auto"}}>
-        {weather_forecast.map((cast)=><div className="grid" key={`cook_${weather_forecast.indexOf(cast)}`}>
-            <p><span className="temp_bold">{floor(cast.feels_like.day)}</span> <sup>o</sup> C
-                <span>{floor(cast.temp.max)}</span> | <span>{floor(cast.temp.min)}</span>
-            
-            </p>
-            <p></p>
-        </div>
+        <Grid container spacing={2} justifyItems={"center"}>
+        {weather_forecast.map((cast)=><Grid item xs={12} md={4} lg={2}>
+        <a href="/" className="container" key={`cook_${weather_forecast.indexOf(cast)}`}>
+              <span className="temp_bold">{floor(cast.feels_like.day)} <sup>o</sup>C</span>
+                Max|Min : <span>{floor(cast.temp.max)}</span><sup>o</sup> | <span>{floor(cast.temp.min)}</span><sup>o</sup>
+                <p>Feels like:{floor(cast.feels_like.day)}<sup>o</sup></p>
+                <span>
+                  {percent(cast.pop)}%
+                </span>
+                <span>
+                  {toKmH(cast.wind_speed)}km/h
+                </span>
+                <span>
+                {toKmH(cast.wind_gust)}km/h
+                </span>
+                </a>
+        </Grid>
         )}
-        </div>
-        </div>
-      </div>
-    
-      </>  
+       </Grid>
+       </Grid>
+       </Grid>
     )
   }
 

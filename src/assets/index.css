@@ -12,10 +12,25 @@ html{
 .two_cols{
   grid-template-columns: 30% auto;
 }
+.important_text{display: block; font-weight: bold; font-size: 2rem}
+
+.container{
+  padding: 0.5rem 0.75rem;
+}
+.container{
+  text-decoration: none;
+  color: black;
+}
+
+label{
+  display: block;
+  margin: 0.5rem 0;
+}
 
 .temp_bold{
   font-size: 2rem;
   font-weight: bold;
+  display: block;
 }
 
 .side_card{
@@ -49,7 +64,7 @@ button{
   display: grid
 }
 .navigation_bar{
-  grid-template-columns: auto auto;
+  grid-template-columns: 20% 30%;
   padding: 0.25rem 0.5rem;
   position: relative;
 }

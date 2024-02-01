@@ -12,14 +12,16 @@ function LandForm(){
                     <div style={{alignSelf:"center"}}>          
                         <p>Welcome to TheWeatherReport</p>
                         <p>Please enter your location coordinates: </p>
-                        <label htmlFor="latitude">Latitude: </label>
+                        <label htmlFor="latitude">Latitude: 
                         <input type="number" min={-90} max={90} id="latitude" onChange={(e)=> {
                             setLat(Number(e.target.value))
                         }} />
-                        <label htmlFor="longitude">Longitude: </label>
+                        </label>
+                        <label htmlFor="longitude">Longitude:
                         <input type="number" min={-90} max={90} id="longitude" onChange={(e)=> {
                             setLong(Number(e.target.value))
                         }}  />
+                        </label>
                         <button>
                             <a href={`/weather/${latitude}/${longitude}`}>Get Weather Report!</a>
                         </button>
