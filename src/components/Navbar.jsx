@@ -17,7 +17,7 @@ return(
                 </div>
                 {modal_status?<></>: <div className="test_modal clicked">
             <span onClick={()=> setModal(!modal_status)}>x</span>
-            <a className='block_link'>Home</a>
+            <a className='block_link' href='/'>Home</a>
             <a className='block_link'>About</a>
             <a className='block_link'>Contact</a>
             <a className='block_link'>Links</a>

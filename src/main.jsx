@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { LandForm } from './components/LandForm.jsx'
+import Error from './components/Error.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { updateWeather } from './api_loaders/loaders.js'
 
@@ -10,10 +11,11 @@ const routes = createBrowserRouter([
   path: `/weather/:lat/:long`, loader: ({params})=> {
     return updateWeather(params.lat, params.long)
   },
-  element: <App/>
+  element: <App/>,
+  errorElement: <Error/>
 },
 {
-  path: '/', element: <LandForm/>
+  path: '/', element: <LandForm/>,  errorElement: <Error/>
 }
 ])
 

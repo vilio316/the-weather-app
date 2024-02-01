@@ -12,6 +12,12 @@ html{
 .two_cols{
   grid-template-columns: 30% auto;
 }
+
+.temp_bold{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .side_card{
   width: 70%;
   justify-self: right;
