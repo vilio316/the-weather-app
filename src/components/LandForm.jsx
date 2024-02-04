@@ -7,7 +7,7 @@ function LandForm(){
     let [longitude, setLong] = useState(0);
     return(
         <>
-        <div className="grid" style={{gridTemplateColumns: '50% auto', width: "80%"}}>
+        <div className="grid" style={{gridTemplateColumns: '50% auto', width: "80%", placeSelf:"center"}}>
                 <img src="/src/assets/wr2.jpg" alt="Weather being Weather" className="side_card"/>
                     <div style={{alignSelf:"center"}}>          
                         <p>Welcome to TheWeatherReport</p>
