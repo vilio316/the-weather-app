@@ -46,7 +46,10 @@ input, button{
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
 }
-
+.icon{
+  border-radius: 1rem;
+  padding: 0 0.75rem;
+}
 button{
   margin: 1rem 0;
 }
@@ -66,6 +69,25 @@ button{
 .grid{
   display: grid
 }
+.w_card{
+  border-radius: 1.5rem;
+}
+.three_cols{
+  grid-template-columns: auto auto auto;
+  justify-content: left;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 1.25rem;
+}
+.icon_small{
+  padding: 0 0.5rem;
+  display: block;
+}
+.weather_detail{
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
 .navigation_bar{
   grid-template-columns: auto auto;
   padding: 0.25rem 0.5rem;
@@ -80,6 +102,6 @@ h2,h4{
 
 @media screen and (max-width: 768px) {
   *{
-    font-size: 10px;
+    font-size: 20px;
   }
 }

@@ -1,5 +1,10 @@
-import { GridOff } from "@mui/icons-material";
+import { Air, GridOff, WaterDropRounded, WindPower } from "@mui/icons-material";
 import { Grid } from "@mui/material";
+import PublicIcon from '@mui/icons-material/Public';
+import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
+import CloudIcon from '@mui/icons-material/Cloud';
+
+
 
 function WeatherCard(props){
   let weather_data = props.entry;
@@ -24,19 +29,50 @@ function WeatherCard(props){
        </Grid>
        <Grid item style={{padding: "0.25rem 1rem"}} xs={12} sm={12} md={8} lg={9}>
       <p style={{display: "block", margin: "1.5rem", textAlign:"center"}}>
-        <span className="important_text">{floor(weather_data.current.temp)}<sup>o</sup>C</span>
-       <span className="important_text">{weather_data.timezone}</span> 
-       <span className="important_text" style={{textTransform: "capitalize"}}>{weather_data.current.weather[0].description} </span>
+        <span className="important_text">
+          <span className="icon"><DeviceThermostatIcon/></span>
+          {floor(weather_data.current.temp)}<sup>o</sup>C
+          </span>
+
+
+       <span className="important_text">
+        <span className="icon"><PublicIcon color={"success"}/> </span>
+        {weather_data.timezone}
+        </span> 
+        
+       <span className="important_text" style={{textTransform: "capitalize"}}>
+        <span className="icon">
+        <CloudIcon color={"primary"}/>
+        </span>
+        {weather_data.current.weather[0].description} 
+        </span>
        </p>
-        <Grid container spacing={2}>
-        {weather_forecast.map((cast)=><Grid item xs={12} sm={4} md={3} alignContent="center" key={cast.dt}>
-        <a href="/" className="container" key={`cook_${weather_forecast.indexOf(cast)}`}>
+        <Grid container spacing={1} justifyContent={"center"}>
+        {weather_forecast.map((cast)=><Grid item xs={12} sm={4} md={3} alignContent="center" justifyContent={"center"} key={cast.dt} className="w_card"> 
+        <a href="/" className="container">
               <span className="temp_bold">{floor(cast.feels_like.day)} <sup>o</sup>C</span>
                 Max|Min : <span>{floor(cast.temp.max)}</span><sup>o</sup> | <span>{floor(cast.temp.min)}</span><sup>o</sup>
                 <p>Feels like:{floor(cast.feels_like.day)}<sup>o</sup></p>
-                <span>{percent(cast.pop)}%</span>
-                <span>{toKmH(cast.wind_speed)}km/h</span>
-                <span>{toKmH(cast.wind_gust)}km/h</span>
+                <div className="grid three_cols">
+                <span className="weather_detail">
+                  <span className="icon_small" title="Chance of Rain">
+                    <WaterDropRounded/>
+                  </span>
+                  {percent(cast.pop)}%</span>
+
+                <span className="weather_detail">
+                  <span className="icon_small" title="Chance of Rain">
+                    <Air/>
+                  </span>
+                  {toKmH(cast.wind_speed)}km/h</span>
+
+                <span className="weather_detail">
+                  <span className="icon_small" title="Chance of Rain">
+                    <WindPower/>
+                  </span>
+                  {toKmH(cast.wind_gust)}km/h</span>
+
+                  </div>
                 </a>
         </Grid>
         )}
