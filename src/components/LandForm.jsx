@@ -7,23 +7,28 @@ function LandForm(){
     let [longitude, setLong] = useState(0);
     return(
         <>
-        <div className="grid" style={{gridTemplateColumns: '50% auto', width: "80%", placeSelf:"center"}}>
+        <div className="grid two" style={{width: "90%", placeSelf:"center"}}>
                 <img src="/src/assets/wr2.jpg" alt="Weather being Weather" className="side_card"/>
-                    <div style={{alignSelf:"center"}}>          
-                        <p>Welcome to TheWeatherReport</p>
-                        <p>Please enter your location coordinates: </p>
+                    <div style={{alignSelf:"center", padding:"0.25rem 0.75rem"}}>          
+                        <p style={{fontWeight: "bold",fontSize:"2rem" }}>Welcome to TheWeatherReport</p>
+                        <p > Please enter your location coordinates: </p>
                         <label htmlFor="latitude">Latitude: 
-                        <input type="number" min={-90} max={90} id="latitude" onChange={(e)=> {
+                        <input type="number" placeholder="0" min={-90} max={90} id="latitude" onChange={(e)=> {
                             setLat(Number(e.target.value))
                         }} />
                         </label>
                         <label htmlFor="longitude">Longitude:
-                        <input type="number" min={-90} max={90} id="longitude" onChange={(e)=> {
+                        <input type="number" placeholder="0"  min={-90} max={90} id="longitude" onChange={(e)=> {
                             setLong(Number(e.target.value))
                         }}  />
                         </label>
-                        <button>
-                            <a href={`/weather/${latitude}/${longitude}`}>Get Weather Report!</a>
+                        <button style={{
+                            backgroundColor:"blue",
+                            borderRadius: "1.5rem",
+                            padding: "0.75rem"
+
+                        }}>
+                            <a href={`/weather/${latitude}/${longitude}`} style={{textDecoration: "none", color:"white"}}>Get Weather Report!</a>
                         </button>
                     </div>
         </div>
