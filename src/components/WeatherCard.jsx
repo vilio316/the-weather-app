@@ -24,7 +24,7 @@ function WeatherCard(props){
 
    return(
       <Grid container spacing={1.5}>
-      <Grid item alignItems={"center"} xs={12} sm={12} md={4} lg={3}>
+      <Grid item xs={12} sm={12} md={4} lg={3}>
         <img src="/src/assets/wr1.jpg" alt="Side Shot" style={{width: "90%", borderRadius:"1.5rem"}} xs={12} sm={4} md={4} lg={6} />
        </Grid>
        <Grid item style={{padding: "0.25rem 1rem"}} xs={12} sm={12} md={8} lg={9}>
@@ -51,7 +51,10 @@ function WeatherCard(props){
         {weather_forecast.map((cast)=><Grid item xs={12} sm={4} md={3} alignContent="center" justifyContent={"center"} key={cast.dt} className="w_card"> 
         <a href="/" className="container">
               <span className="temp_bold">{floor(cast.feels_like.day)} <sup>o</sup>C</span>
-                Max|Min : <span>{floor(cast.temp.max)}</span><sup>o</sup> | <span>{floor(cast.temp.min)}</span><sup>o</sup>
+                <span className="feels">Max|Min : 
+                {floor(cast.temp.max)}<sup>o</sup> | 
+                {floor(cast.temp.min)}<sup>o</sup> 
+                </span>
                 <p>Feels like:{floor(cast.feels_like.day)}<sup>o</sup></p>
                 <div className="grid three_cols">
                 <span className="weather_detail">
