@@ -117,5 +117,6 @@ h2,h4{
   }
   .side_card{
     justify-content: center;
+    justify-self: center;
   }
 }
