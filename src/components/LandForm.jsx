@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import {Button} from "@mui/material";
 import { useState } from "react";
+import weatherShot from '../assets/wr2.jpg'
 
 function LandForm(){
     let [latitude, setLat] = useState(0);
@@ -8,7 +9,7 @@ function LandForm(){
     return(
         <>
         <div className="grid two" style={{width: "90%", placeSelf:"center"}}>
-                <img src="/src/assets/wr2.jpg" alt="Weather being Weather" className="side_card"/>
+                <img src={weatherShot} alt="Weather being Weather" className="side_card"/>
                     <div style={{alignSelf:"center", padding:"0.25rem 0.75rem"}}>          
                         <p style={{fontWeight: "bold",fontSize:"2rem" }}>Welcome to TheWeatherReport</p>
                         <p > Please enter your location coordinates: </p>

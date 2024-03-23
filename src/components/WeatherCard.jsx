@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import PublicIcon from '@mui/icons-material/Public';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import CloudIcon from '@mui/icons-material/Cloud';
+import weatherShot2 from '../assets/wr1.jpg'
 
 
 
@@ -25,7 +26,7 @@ function WeatherCard(props){
    return(
       <Grid container spacing={1.5}>
       <Grid item xs={12} sm={12} md={4} lg={3}>
-        <img src="/src/assets/wr1.jpg" alt="Side Shot" style={{width: "90%", borderRadius:"1.5rem"}} xs={12} sm={4} md={4} lg={6} />
+        <img src={weatherShot2} alt="Side Shot" style={{width: "90%", borderRadius:"1.5rem"}} xs={12} sm={4} md={4} lg={6} />
        </Grid>
        <Grid item style={{padding: "0.25rem 1rem"}} xs={12} sm={12} md={8} lg={9}>
       <p style={{display: "block", margin: "1.5rem", textAlign:"center"}}>
