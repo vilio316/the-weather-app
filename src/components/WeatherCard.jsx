@@ -4,30 +4,33 @@ import PublicIcon from '@mui/icons-material/Public';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import CloudIcon from '@mui/icons-material/Cloud';
 import weatherShot2 from '../assets/wr1.jpg'
+import { useParams } from "react-router-dom";
 
-
-
+export const makeDate = (timestamp) => {
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  let upgraded_stamp = timestamp * 1000
+  let dateOut = new Date(upgraded_stamp)
+  return `${days[dateOut.getDay()]}, ${dateOut.getDate()} ${months[dateOut.getMonth()]}`
+}
+export const floor =(temp)=>{
+  return Math.floor(temp)
+}
+export const percent = (figure)=>{
+  return Math.floor(Number(figure) * 100)
+}
+export const toKmH = (speed) =>{
+  return Math.floor((Number(speed)) * 3.6)
+}
 function WeatherCard(props){
+  let {lat, long} = useParams()
   let weather_data = props.entry;
   console.log(weather_data)
   let weather_forecast = props.entry.daily;
     console.log(weather_forecast)
 
-    const floor =(temp)=>{
-      return Math.floor(temp)
-    }
-    const percent = (figure)=>{
-      return Number(figure) * 100
-    }
-    const toKmH = (speed) =>{
-      return Math.floor((Number(speed)) * 3.6)
-    }
-    const makeDate = (timestamp) => {
-      let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-      let upgraded_stamp = timestamp * 1000
-      let dateOut = new Date(upgraded_stamp)
-      return days[dateOut.getDay()]
-    }
+   
+  
    return(
       <Grid container spacing={1.5}>
       <Grid item xs={12} sm={12} md={4} lg={3}>
@@ -55,7 +58,7 @@ function WeatherCard(props){
        </p>
         <Grid container spacing={1} justifyContent={"center"}>
         {weather_forecast.map((cast)=><Grid item xs={12} sm={4} md={3} alignContent="center" justifyContent={"center"} key={cast.dt} className="w_card"> 
-        <a href="/" className="container">
+        <a href={`/weather_day/${lat}/${long}/${weather_forecast.indexOf(cast)}`} className="container">
             <p className="important_text">{makeDate(cast.dt)}</p>
               <span className="temp_bold">{floor(cast.feels_like.day)} <sup>o</sup>C</span>
                 <span className="feels">Max|Min : 

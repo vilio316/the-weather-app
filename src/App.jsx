@@ -1,5 +1,4 @@
 import { useLoaderData } from 'react-router-dom'
-import { Navbar } from './components/Navbar';
 import {WeatherCard} from './components/WeatherCard'
 
 
@@ -8,7 +7,6 @@ function App() {
 
   return(
     <>
-    <Navbar/>
       <WeatherCard entry={weza_repoto}/>
       </>
   )

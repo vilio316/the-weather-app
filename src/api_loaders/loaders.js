@@ -7,5 +7,11 @@ let api_response = await api_fetch.json();
 return api_response
 }
 
+async function weatherByDay(lat, long ,index){
+    let api_fetch = await fetch(`${apiHome}lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`);
+    let api_response = await api_fetch.json();
+    let daily_cast = api_response.daily[index]
+    return daily_cast
+}
 
-export {updateWeather}
+export {updateWeather, weatherByDay}
