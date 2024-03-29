@@ -22,7 +22,12 @@ function WeatherCard(props){
     const toKmH = (speed) =>{
       return Math.floor((Number(speed)) * 3.6)
     }
-
+    const makeDate = (timestamp) => {
+      let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      let upgraded_stamp = timestamp * 1000
+      let dateOut = new Date(upgraded_stamp)
+      return days[dateOut.getDay()]
+    }
    return(
       <Grid container spacing={1.5}>
       <Grid item xs={12} sm={12} md={4} lg={3}>
@@ -51,6 +56,7 @@ function WeatherCard(props){
         <Grid container spacing={1} justifyContent={"center"}>
         {weather_forecast.map((cast)=><Grid item xs={12} sm={4} md={3} alignContent="center" justifyContent={"center"} key={cast.dt} className="w_card"> 
         <a href="/" className="container">
+            <p className="important_text">{makeDate(cast.dt)}</p>
               <span className="temp_bold">{floor(cast.feels_like.day)} <sup>o</sup>C</span>
                 <span className="feels">Max|Min : 
                 {floor(cast.temp.max)}<sup>o</sup> | 
