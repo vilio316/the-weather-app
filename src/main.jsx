@@ -32,7 +32,6 @@ errorElement: <Error/>
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Navbar/>
     <RouterProvider router={routes}/>
   </React.StrictMode>,
 )

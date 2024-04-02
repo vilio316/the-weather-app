@@ -12,6 +12,7 @@ export default function WeatherCardByDay(){
 
     return(
         <>
+        <Navbar/>
         <p className="important_text">
             {makeDate(result.dt)}
         </p>
