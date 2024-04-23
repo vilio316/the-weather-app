@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { makeDate, floor, toKmH, percent} from "./WeatherCard";
+import { Navbar } from "./Navbar";
 
 export default function WeatherCardByDay(){
     let result = useLoaderData();
-    console.log(result)   
 
     const makeTime = (timestamp) => {
         let date = new Date(timestamp * 1000)
