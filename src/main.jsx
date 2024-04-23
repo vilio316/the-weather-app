@@ -6,7 +6,6 @@ import Error from './components/Error.jsx'
 import WeatherCardByDay from './components/WeatherCardByDay.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { updateWeather, weatherByDay } from './api_loaders/loaders.js'
-import { Navbar } from './components/Navbar.jsx'
 
 const routes = createBrowserRouter([
 {
